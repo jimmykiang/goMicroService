@@ -26,7 +26,7 @@ func CreateOrder(ctx *gin.Context, c pb.OrderServiceClient) {
 	res, err := c.CreateOrder(context.Background(), &pb.CreateOrderRequest{
 		ProductId: b.ProductId,
 		Quantity:  b.Quantity,
-		UserId:    userId.(int64),
+		UserId:    int64(userId.(int32)),
 	})
 
 	if err != nil {
